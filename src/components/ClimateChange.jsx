@@ -1,7 +1,20 @@
 import React from 'react'
 import Datos_Climate from './Datos_Climate'
 
-export default function ClimateChange({toggleModal}) {
+
+
+
+
+
+
+export default function ClimateChange({toggleModal, lat, lon , icono}) {
+
+    
+
+
+
+
+
   return (
     <div>
       {/* Section 1 */}
@@ -24,7 +37,7 @@ export default function ClimateChange({toggleModal}) {
 
           {/* div de las nubes o cualquier cosa */}
           <div className="relative z-10  flex justify-center items-center border-white w-[200px] h-[200px]">
-              <img className='w-[150px] h-[150px]'src='/src/images/01d.png' />
+              <img className='w-[150px] h-[150px]'src={`/src/images/${icono}.png`} alt='Loading...'/>
           </div>
         </section>
 
@@ -33,8 +46,9 @@ export default function ClimateChange({toggleModal}) {
 
         {/* Section 3 */}
         <section className=" border-white w-[375px] h-[290px]">
-        <Datos_Climate />
+        <Datos_Climate lat={lat} lon={lon} />
         </section>
+
       </section>
     </div>
   )
