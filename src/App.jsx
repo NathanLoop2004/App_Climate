@@ -10,7 +10,7 @@
 import  { useState, useEffect } from "react";
 import InputClimate from "./components/InputClimate";
 import ClimateChange from "./components/ClimateChange";
-import Datos_Climate from "./components/Datos_Climate";
+
 import axios from "axios";
 
 

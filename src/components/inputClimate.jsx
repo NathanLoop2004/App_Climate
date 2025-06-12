@@ -39,28 +39,28 @@ toggleModal();
   return (
     <>
       {isModalOpen && (
-        <div className="fixed inset-0 w-[375px] h-[680px] bg-[#1e213a] z-50">
-          <section className="border-white w-[375px] h-[60px] flex mt-[-7px] justify-end ml-[-25px]">
-            <button className="mt-6 mr-4" onClick={toggleModal}>
+        <div className="fixed inset-0 w-[375px] h-[680px] lg:w-[500px] xl:h-[900px] bg-[#1e213a]  border-white z-50">
+          <section className="border-white w-[375px] lg:w-[500px] h-[60px] flex mt-[-7px] justify-end ml-[-25px]">
+            <button className="mt-6 mr-4 " onClick={toggleModal}>
               <img src="/close.svg" className="w-[25px] h-[25px]" />
             </button>
           </section>
 
-          <div className="flex flex-row border-white w-[375px] h-[50px] mt-1">
+          <div className="flex flex-row  border-white w-[375px]  lg:w-[500px] h-[50px] mt-1 ">
             <form className="flex flex-row items-start" onSubmit={(e) => e.preventDefault()}>
-              <div className="flex flex-row h-[38px] ml-5 w-[210px] border border-white items-center">
+              <div className="flex flex-row h-[38px] ml-5 w-[210px] lg:w-[300px] lg:h-[42px] border border-white items-center">
                 <img className="w-[25px] h-[25px] ml-2" src="/search.svg" />
                 <input
                   type="text"
                   placeholder="search Location"
-                  className="ml-2 text-[#9ca3ab] font-semibold placeholder-[#9ca3ab] w-[162px] focus:outline-none"
+                  className="ml-2 text-[#9ca3ab] font-semibold placeholder-[#9ca3ab] w-[162px] lg:w-[300px] focus:outline-none"
                   value={inputValue}
                   onChange={handleInputChange}
                 />
               </div>
               <button
                 type="submit"
-                className="bg-[#3c47e9] h-[38px] w-[80px] ml-[41px] font-semibold text-white"
+                className="bg-[#3c47e9] h-[38px] lg:h-[42px] w-[80px] lg:w-[100px] ml-[41px] font-semibold text-white"
               >
                 Search
               </button>
@@ -75,8 +75,8 @@ toggleModal();
 
           {inputValue.trim() && filteredCities.length > 0 && (
             <div
-              className="mt-5 bg-[#1e213a] p-4 rounded overflow-y-auto scrollbar-none"
-              style={{ height: "325px", width: "375px" }}
+              className="mt-5 bg-[#1e213a] p-4 rounded overflow-y-auto scrollbar-none h-[325px] lg:h-[580px]  "
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {filteredCities.map((city, index) => (
                 <div
