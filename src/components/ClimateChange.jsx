@@ -2,20 +2,37 @@ import React from 'react'
 import Datos_Climate from './Datos_Climate'
 import CardDesingDays from './CardDesingDays'
 import CardToday from './CardToday'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 
 
 
 
+export default function ClimateChange({toggleModal, lat, lon , icono,onUnitChange , selectedUnit}) {
 
+  const API_KEY = '68eced32006658951a4c9461553df01f';  
 
-export default function ClimateChange({toggleModal, lat, lon , icono}) {
+    const [unit, setUnit] = useState("metric")
 
-    
+  useEffect(() => {
+    if (lat && lon) {
+      axios
+        .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${unit}`)
+        .then((response) => {
+          response // Actualiza la temperatura
+        })
+        .catch((error) => {
+          console.error("Error fetching weather data:", error);
+        });
+    }
+  }, [lat, lon, unit])
 
-
-
-
+  const handleUnitChange = (newUnit) => {
+    setUnit(newUnit);
+    onUnitChange(newUnit) 
+    console.log(`Metric changed to: ${newUnit}`);
+  };
 
   return (
     <div className='lg:flex lg:flex-row'>
@@ -48,7 +65,7 @@ export default function ClimateChange({toggleModal, lat, lon , icono}) {
 
         {/* Section 3 */}
         <section className=" border-white w-[375px] h-[290px] ">
-        <Datos_Climate lat={lat} lon={lon} />
+        <Datos_Climate lat={lat} lon={lon} selectedUnit={selectedUnit} />
         </section>
 
       </section>
@@ -62,14 +79,23 @@ export default function ClimateChange({toggleModal, lat, lon , icono}) {
    <section className="  border-white w-[375px] lg:w-[100%] h-[80px] flex items-end gap-4  ">
         
         {/* Celsius button */}
-        <button className="bg-white rounded-full h-[40px] w-[40px] ml-[210px] lg:ml-[80%]">
-          <h1 className='font-bold'>°C</h1>
+          <button
+          className={` rounded-full h-[40px] w-[40px] ml-[210px] lg:ml-[80%] ${
+            unit === "metric" ? "font-bold bg-amber-50 text-[#100e1d]" : "bg-[#585676] text-white"
+          }`}
+          onClick={() => handleUnitChange("metric")}
+        ><h1>°C</h1>
         </button>
         
 
         {/* fahrenheit button */}
-       <button className="bg-white rounded-full h-[40px] w-[40px]">
-          <h1 className='font-bold'>°F</h1>
+        <button
+          className={` rounded-full h-[40px] w-[40px] ${
+            unit === "imperial" ? "font-bold bg-amber-50 text-[#100e1d]" : "bg-[#585676] text-white"
+          }`}
+          onClick={() => handleUnitChange("imperial")}
+        >
+          °F
         </button>
    </section>
 
@@ -80,7 +106,7 @@ export default function ClimateChange({toggleModal, lat, lon , icono}) {
 
   {/* Section Cards 5 dias */}
    <section className="border-white w-[375px] md:w-[100%] h-[700px] lg:h-[200px]  flex justify-start items-center">
-      <CardDesingDays  lat={lat} lon={lon}/>
+      <CardDesingDays  selectedUnit={selectedUnit} lat={lat} lon={lon}/>
    </section>
 
 
@@ -93,7 +119,7 @@ export default function ClimateChange({toggleModal, lat, lon , icono}) {
 
 
    <section className=" border-white w-[375px] lg:w-[730px] h-[500px] lg:h-[400px] lg:ml-30 grid grid-cols-1 lg:grid-cols-2">
-      <CardToday lat ={lat} lon={lon} />
+      <CardToday lat ={lat} lon={lon} selectedUnit={selectedUnit} />
    </section>
 </section>
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function CardToday({lat, lon}) {
+export default function CardToday({lat, lon, selectedUnit}) {
 
 
 const [windSpeed, setWindSpeed] = useState("");
@@ -20,7 +20,7 @@ useEffect(() => {
     if (lat && lon) {
       // Realiza la solicitud a la API de OpenWeather
       axios
-        .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+        .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${selectedUnit}`)
         .then((response) => {
           const wind =  response.data.list[0].wind.speed
           setWindSpeed(wind)
@@ -39,7 +39,7 @@ useEffect(() => {
           console.error("Error fetching weather data:", error);
         });
     }
-  }, [lat, lon]);
+  }, [lat, lon, selectedUnit]);
 
 const getWindDirection = (windDeg) => {
   if (windDeg >= 0 && windDeg < 22.5) return "N";
@@ -74,7 +74,7 @@ const getWindDirection = (windDeg) => {
          {/* WinStatus info */}
          <section className=" flex flex-row text-[#e7e7eb]">
             <h1 className='text-[55px] font-bold'>{windSpeed}</h1>
-            <h1 className='mt-2 text-[35px] font-semibold'>ms</h1>
+            <h1 className='mt-2 text-[35px] font-semibold'>{selectedUnit === "imperial" ? "mph" : "ms"}</h1>
          </section>
          <section className="flex flex-row">
             <img

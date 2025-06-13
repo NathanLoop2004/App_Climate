@@ -21,6 +21,13 @@ function App() {
  const [isModalOpen, setIsModalOpen] = useState(false)
  const [icono, setIcono] = useState("")
 
+   const [selectedUnit, setSelectedUnit] = useState("metric"); // Estado para guardar la métrica seleccionada
+
+  const handleUnitChange = (unit) => {
+    setSelectedUnit(unit);
+     // Actualiza el estado en App.jsx
+  };
+
   const handleCitySelect = (latitude, longitude) => {
     setLat(latitude);
     setLon(longitude);
@@ -38,16 +45,17 @@ function App() {
     if (lat && lon) {
       // Realiza la solicitud a la API de OpenWeather
       axios
-        .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+        .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${selectedUnit}`)
         .then((response) => {
           const icon = response.data.list[0].weather[0].icon; // Obtiene el ícono del clima
           setIcono(icon); // Actualiza el estado con el ícono
+          console.log(response.data)
         })
         .catch((error) => {
           console.error("Error fetching weather data:", error);
         });
     }
-  }, [lat, lon]);
+  }, [lat, lon, selectedUnit]);
   
 
   return (
@@ -57,7 +65,12 @@ function App() {
         isModalOpen={isModalOpen}
         onCitySelect={handleCitySelect} // Pasar la función como prop
       />
-      {lat && lon && <ClimateChange lat={lat} lon={lon} icono={icono} toggleModal={toggleModal} />}
+      {lat && lon && <ClimateChange   lat={lat}
+  lon={lon}
+  icono={icono}
+  toggleModal={toggleModal}
+  selectedUnit={selectedUnit} 
+  onUnitChange={handleUnitChange} />}
     </div>
   );
 }

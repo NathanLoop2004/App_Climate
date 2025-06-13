@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import axios from 'axios';
 
-export default function Datos_Climate({lat,lon}) {
+export default function Datos_Climate({lat,lon, selectedUnit}) {
  
  const API_KEY = '68eced32006658951a4c9461553df01f';
     const [ubicacion, setUbicacion] = useState("")
@@ -27,7 +27,7 @@ export default function Datos_Climate({lat,lon}) {
     if (lat && lon) {
       // Realiza la solicitud a la API de OpenWeather
       axios
-        .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+        .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${selectedUnit}`)
         .then((response) => {
           const ubicacion = response.data.city.name;
           setUbicacion(ubicacion)
@@ -37,13 +37,13 @@ export default function Datos_Climate({lat,lon}) {
           const descripcion = response.data.list[0].weather[0].description;
           setDescripcion(descripcion)
         
-          console.log(response.data); // Muestra los datos en la consola
+         
         })
         .catch((error) => {
           console.error("Error fetching weather data:", error); // Maneja errores
         });
     }
-  }, [lat, lon]);
+  }, [lat, lon, selectedUnit]);
  
  
  
@@ -55,7 +55,7 @@ export default function Datos_Climate({lat,lon}) {
         {/* Datos de Grados */}
       <section className=" border-white w-[250px] lg:ml-30 mt-[-25px] mb-[15px] h-[120px] flex justify-center items-center flex-row">
         <h1 className='text-[#e7e7eb] text-[125px]'>{temperatura !== "" ? Math.round(temperatura) : "-"} </h1>
-        <span className='text-[#a09fb1] text-[45px] '>°C</span>
+        <span className='text-[#a09fb1] text-[45px] '>{selectedUnit === "imperial" ? "°F" : "°C"}</span>
       </section>
          {/* Datos del tipo de clima */}
       <section className=" border-white w-[260px] h-[55px] mb-[13px] lg:ml-30 flex justify-center items-center  ">

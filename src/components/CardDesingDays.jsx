@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export default function CardDesingDays({ lat, lon}) {
+export default function CardDesingDays({ lat, lon, selectedUnit}) {
 const API_KEY = '68eced32006658951a4c9461553df01f';
    
     const [temperatura, setTemperature] = useState("")
@@ -44,7 +44,7 @@ const getFormattedDate = (offset = 0) => {
     if (lat && lon) {
       // Realiza la solicitud a la API de OpenWeather
       axios
-        .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+        .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${selectedUnit}`)
         .then((response) => {
          
           const temp = response.data.list[0].main.temp;
@@ -99,7 +99,7 @@ const getFormattedDate = (offset = 0) => {
           console.error("Error fetching weather data:", error); // Maneja errores
         });
     }
-}, [lat, lon]);
+}, [lat, lon, selectedUnit]);
 
 
   return (
@@ -119,8 +119,8 @@ const getFormattedDate = (offset = 0) => {
 
 
           <section className=" gap-2 flex flex-row mt-4">
-            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura !== "" ? Math.round(temperatura) : "-"}°C</h1>
-            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp !== "" ? Math.round(minTemp) : "-"}°C</span>
+            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura !== "" ? Math.round(temperatura) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</h1>
+            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp !== "" ? Math.round(minTemp) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</span>
      </section>
      </section>
 
@@ -141,8 +141,8 @@ const getFormattedDate = (offset = 0) => {
 
 
           <section className=" gap-2 flex flex-row mt-4">
-            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura1 !== "" ? Math.round(temperatura1) : "-"}°C</h1>
-            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp1 !== "" ? Math.round(minTemp1) : "-"}°C</span>
+            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura1 !== "" ? Math.round(temperatura1) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</h1>
+            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp1 !== "" ? Math.round(minTemp1) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</span>
           </section>
 
 
@@ -163,8 +163,8 @@ const getFormattedDate = (offset = 0) => {
 
 
           <section className=" gap-2 flex flex-row mt-4">
-            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura2 !== "" ? Math.round(temperatura2) : "-"}°C</h1>
-            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp2 !== "" ? Math.round(minTemp2) : "-"}°C</span>
+            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura2 !== "" ? Math.round(temperatura2) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</h1>
+            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp2 !== "" ? Math.round(minTemp2) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</span>
           </section>
 
 
@@ -187,8 +187,8 @@ const getFormattedDate = (offset = 0) => {
 
 
           <section className=" gap-2 flex flex-row mt-4">
-            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura3 !== "" ? Math.round(temperatura3) : "-"}°C</h1>
-            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp3 !== "" ? Math.round(minTemp3) : "-"}°C</span>
+            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura3 !== "" ? Math.round(temperatura3) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</h1>
+            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp3 !== "" ? Math.round(minTemp3) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</span>
           </section>
 
 
@@ -212,8 +212,8 @@ const getFormattedDate = (offset = 0) => {
 
 
           <section className=" gap-2 flex flex-row mt-4">
-            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura4 !== "" ? Math.round(temperatura4) : "-"}°C</h1>
-            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp4 !== "" ? Math.round(minTemp4) : "-"}°C</span>
+            <h1 className=" border-white text-[#e7e7df] font-semibold ">{temperatura4 !== "" ? Math.round(temperatura4) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</h1>
+            <span className=" border-white text-[#a09fa5] font-semibold ">{minTemp4 !== "" ? Math.round(minTemp4) : "-"}{selectedUnit === "imperial" ? "°F" : "°C"}</span>
           </section>
 
 
