@@ -20,12 +20,16 @@ export default function InputClimate({ toggleModal, isModalOpen, onCitySelect })
     setInputValue(query);
     setErrorMessage("");
 
-    const matches = cities.filter(
-      (city) =>
-        city.name.toLowerCase().includes(query) ||
-        city.country.toLowerCase().includes(query)
-    );
-    setFilteredCities(matches);
+ 
+  const filteredCities = cities
+   .filter((city) => 
+    city.name.toLowerCase().includes(inputValue.toLowerCase()) || 
+    city.country.toLowerCase().includes(inputValue.toLowerCase()) // Agrega otra condición
+  ) // Filtra las ciudades
+.slice(0, 30);
+
+
+    setFilteredCities(filteredCities);
   };
 
   const handleCityClick = (index) => {
