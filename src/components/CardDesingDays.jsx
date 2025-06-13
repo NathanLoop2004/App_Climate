@@ -103,7 +103,7 @@ const getFormattedDate = (offset = 0) => {
 
 
   return (
-    <div className=' lg:mt-15 border-white w-[300px] lg:w-[80%] h-[600px] lg:h-[200px] ml-10 grid grid-cols-2 lg:grid-cols-none lg:flex lg:flex-row lg:justify-center gap-2'>
+    <div className=' lg:mt-15  w-[300px] lg:w-[80%] h-[600px] lg:h-[200px] ml-10 grid grid-cols-2 lg:grid-cols-none lg:flex lg:flex-row lg:justify-center gap-2'>
        {/* primera card */}
       <section className='bg-[#1e213a] w-[140px] h-[160px] flex  flex-col items-center'>
         {/* Titulo */}

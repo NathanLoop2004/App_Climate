@@ -1,6 +1,7 @@
 import React from 'react'
 import Datos_Climate from './Datos_Climate'
 import CardDesingDays from './CardDesingDays'
+import CardToday from './CardToday'
 
 
 
@@ -19,7 +20,7 @@ export default function ClimateChange({toggleModal, lat, lon , icono}) {
   return (
     <div className='lg:flex lg:flex-row'>
       {/* Section 1 */}
-      <section className="w-[375px] lg:w-[480px] h-[680px] xl:h-[850px] bg-[#1e213a]">
+      <section className="w-[375px] lg:w-[480px] h-[680px] xl:h-[850px] bg-[#1e213a]  border-white">
         {/* Section Input y búsqueda por IP */}
         <section className=" border-white pt-8 flex flex-row justify-around xl:mt-2 ">
           <button className="bg-[#6e707a] w-[175px] h-[35px] mt-1 text-[#E7E7EB] cursor-pointer"
@@ -53,7 +54,7 @@ export default function ClimateChange({toggleModal, lat, lon , icono}) {
       </section>
 {/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
        {/* Segunda section parte de diseño */}
-<section className="bg-[#100e1d] w-[375px] md:w-[100%] h-[1400px] md:h-[850px]">
+<section className="bg-[#100e1d] w-[375px] md:w-[100%] h-[1700px] md:h-[850px]  border-white">
 
    
 
@@ -84,15 +85,15 @@ export default function ClimateChange({toggleModal, lat, lon , icono}) {
 
 
 
-   <section className=" border-white w-[375px] h-[50px] lg:ml-32">
+   <section className=" border-white w-[375px] h-[50px] lg:ml-25">
     <h1 className='text-[#e7e7eb] text-[26px] font-semibold ml-6'>Today`s Hightlights</h1>
    </section>
    
 
 
 
-   <section className="border border-white w-[375px] lg:w-[730px] h-[200px] lg:h-[400px] lg:ml-33">
-
+   <section className=" border-white w-[375px] lg:w-[730px] h-[500px] lg:h-[400px] lg:ml-30 grid grid-cols-1 lg:grid-cols-2">
+      <CardToday lat ={lat} lon={lon} />
    </section>
 </section>
 
