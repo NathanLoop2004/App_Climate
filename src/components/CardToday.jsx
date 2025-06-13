@@ -77,12 +77,15 @@ const getWindDirection = (windDeg) => {
             <h1 className='mt-2 text-[35px] font-semibold'>{selectedUnit === "imperial" ? "mph" : "ms"}</h1>
          </section>
          <section className="flex flex-row">
+            <div className='bg-[#100e1d] rounded-full w-[50px] h-[50px] flex items-center justify-center mr-2 mt-[-4px]'>
+
             <img
     src="/navigation.svg"
-    className="mt-1 h-[30px] w-[30px]"
+    className="mt-1 h-[30px] w-[30px] "
     style={{ transform: `rotate(${windDeg}deg)` }} // Aplicar rotación dinámica
     alt="Wind Direction"
-  />
+    />
+    </div>
               <h1 className=' text-[#e7e7eb] text-[20px]'>{getWindDirection(windDeg)}</h1>
          </section>
      </section>

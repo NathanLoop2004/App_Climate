@@ -9,9 +9,10 @@ import { useState, useEffect } from 'react'
 
 
 
-export default function ClimateChange({toggleModal, lat, lon , icono,onUnitChange , selectedUnit}) {
+export default function ClimateChange({toggleModal, lat, lon , icono,onUnitChange , selectedUnit, setLat, setLon}) {
 
   const API_KEY = '68eced32006658951a4c9461553df01f';  
+
 
     const [unit, setUnit] = useState("metric")
 
@@ -34,6 +35,30 @@ export default function ClimateChange({toggleModal, lat, lon , icono,onUnitChang
     console.log(`Metric changed to: ${newUnit}`);
   };
 
+   function getCurrentLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+         setLat(position.coords.latitude);
+         setLon(position.coords.longitude);
+        console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+      },
+      (error) => {
+        console.error("Error getting location:", error.message);
+      }
+    );
+  } else {
+    console.error("Geolocation is not supported by this browser.");
+  }
+}
+
+  
+
+
+
+
+
+
   return (
     <div className='lg:flex lg:flex-row'>
       {/* Section 1 */}
@@ -44,7 +69,7 @@ export default function ClimateChange({toggleModal, lat, lon , icono,onUnitChang
           onClick={toggleModal}>
             Search for Places
           </button>
-          <button className="bg-[#4b4d61] h-[40px] w-[40px] rounded-full flex items-center justify-center cursor-pointer">
+          <button className="bg-[#4b4d61] h-[40px] w-[40px] rounded-full flex items-center justify-center cursor-pointer" onClick={getCurrentLocation} >
             <img className="w-[25px] h-[25px] ml-[1px]" src="/location.svg" alt="Location Icon" />
           </button>
         </section>

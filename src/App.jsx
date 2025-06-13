@@ -49,7 +49,7 @@ function App() {
         .then((response) => {
           const icon = response.data.list[0].weather[0].icon; // Obtiene el ícono del clima
           setIcono(icon); // Actualiza el estado con el ícono
-          console.log(response.data)
+          
         })
         .catch((error) => {
           console.error("Error fetching weather data:", error);
@@ -65,7 +65,7 @@ function App() {
         isModalOpen={isModalOpen}
         onCitySelect={handleCitySelect} // Pasar la función como prop
       />
-      {lat && lon && <ClimateChange   lat={lat}
+      {lat && lon && <ClimateChange setLon={setLon} setLat={setLat}  lat={lat}
   lon={lon}
   icono={icono}
   toggleModal={toggleModal}
