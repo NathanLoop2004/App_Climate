@@ -147,7 +147,7 @@ const getWindDirection = (windDeg) => {
 
 
         <section className=' border-white w-[375px] h-[30px] ml-10 lg:mt-0 xl:ml-60 lg:ml-60 text-[#a09fa3] text-[13px]'><h1>Created by
-<span className='font-bold'>NathanLoop2004</span>
+<span className='font-bold cursor-pointer hover:text-white' onClick={() => window.location.href = "https://www.instagram.com/nathanaelborja_/" }>NathanLoop2004</span>
 - devChallenges.io</h1></section>
 
     </div>
