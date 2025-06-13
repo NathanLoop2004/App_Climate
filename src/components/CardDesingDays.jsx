@@ -113,7 +113,7 @@ const getFormattedDate = (offset = 0) => {
 
          {/* Foto de la card */}
         <section className="mt-6">
-            <img src={`/src/images/${icon}.png`} alt="" className='w-[40px] h-[40px]' />
+            <img src={`/images/${icon}.png`} alt="" className='w-[40px] h-[40px]' />
         </section>
 
 
@@ -135,7 +135,7 @@ const getFormattedDate = (offset = 0) => {
 
          {/* Foto de la card */}
         <section className="mt-6">
-            <img src={`/src/images/${icon1}.png`} alt="" className='w-[40px] h-[40px]' />
+            <img src={`/images/${icon1}.png`} alt="" className='w-[40px] h-[40px]' />
         </section>
 
 
@@ -157,7 +157,7 @@ const getFormattedDate = (offset = 0) => {
 
          {/* Foto de la card */}
         <section className="mt-6">
-            <img src={`/src/images/${icon2}.png`} alt="" className='w-[40px] h-[40px]' />
+            <img src={`/images/${icon2}.png`} alt="" className='w-[40px] h-[40px]' />
         </section>
 
 
@@ -181,7 +181,7 @@ const getFormattedDate = (offset = 0) => {
 
          {/* Foto de la card */}
         <section className="mt-6">
-            <img src={`/src/images/${icon3}.png`} alt="" className='w-[40px] h-[40px]' />
+            <img src={`/images/${icon3}.png`} alt="" className='w-[40px] h-[40px]' />
         </section>
 
 
@@ -206,7 +206,7 @@ const getFormattedDate = (offset = 0) => {
 
          {/* Foto de la card */}
         <section className="mt-6">
-            <img src={`/src/images/${icon4}.png`} alt="" className='w-[40px] h-[40px]' />
+            <img src={`/images/${icon4}.png`} alt="" className='w-[40px] h-[40px]' />
         </section>
 
 

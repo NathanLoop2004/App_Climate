@@ -39,7 +39,7 @@ export default function ClimateChange({toggleModal, lat, lon , icono}) {
 
           {/* div de las nubes o cualquier cosa */}
           <div className="relative z-10  flex justify-center items-center border-white w-[200px] h-[200px] xl:mt-5">
-              <img className='w-[150px] lg:w-[300px] h-[150px] lg:h-[200px] 'src={`/src/images/${icono}.png`} alt='Loading...'/>
+              <img className='w-[150px] lg:w-[300px] h-[150px] lg:h-[200px] 'src={`/images/${icono}.png`} alt='Loading...'/>
           </div>
         </section>
 

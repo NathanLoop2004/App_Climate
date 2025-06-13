@@ -51,7 +51,7 @@ function App() {
   
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <InputClimate
         toggleModal={toggleModal}
         isModalOpen={isModalOpen}

@@ -41,7 +41,25 @@ useEffect(() => {
     }
   }, [lat, lon]);
 
-
+const getWindDirection = (windDeg) => {
+  if (windDeg >= 0 && windDeg < 22.5) return "N";
+  if (windDeg >= 22.5 && windDeg < 45) return "NNE";
+  if (windDeg >= 45 && windDeg < 67.5) return "NE";
+  if (windDeg >= 67.5 && windDeg < 90) return "ENE";
+  if (windDeg >= 90 && windDeg < 112.5) return "E";
+  if (windDeg >= 112.5 && windDeg < 135) return "ESE";
+  if (windDeg >= 135 && windDeg < 157.5) return "SE";
+  if (windDeg >= 157.5 && windDeg < 180) return "SSE";
+  if (windDeg >= 180 && windDeg < 202.5) return "S";
+  if (windDeg >= 202.5 && windDeg < 225) return "SSW";
+  if (windDeg >= 225 && windDeg < 247.5) return "SW";
+  if (windDeg >= 247.5 && windDeg < 270) return "WSW";
+  if (windDeg >= 270 && windDeg < 292.5) return "W";
+  if (windDeg >= 292.5 && windDeg < 315) return "WNW";
+  if (windDeg >= 315 && windDeg < 337.5) return "NW";
+  if (windDeg >= 337.5 && windDeg <= 360) return "NNW";
+  return "N"; // Valor por defecto si no coincide
+};
 
   return (
     <div className='grid grid-cols-1 gap-y-10 lg:gap-y-10 lg:grid-cols-2 gap-x-95 xl:ml-20'>
@@ -58,13 +76,14 @@ useEffect(() => {
             <h1 className='text-[55px] font-bold'>{windSpeed}</h1>
             <h1 className='mt-2 text-[35px] font-semibold'>ms</h1>
          </section>
-         <section className="">
+         <section className="flex flex-row">
             <img
     src="/navigation.svg"
     className="mt-1 h-[30px] w-[30px]"
     style={{ transform: `rotate(${windDeg}deg)` }} // Aplicar rotación dinámica
     alt="Wind Direction"
   />
+              <h1 className=' text-[#e7e7eb] text-[20px]'>{getWindDirection(windDeg)}</h1>
          </section>
      </section>
 
