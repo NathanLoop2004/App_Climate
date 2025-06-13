@@ -8,8 +8,9 @@
 
     const API_KEY = '68eced32006658951a4c9461553df01f';
 import  { useState, useEffect } from "react";
-import InputClimate from "./components/InputClimate";
+
 import ClimateChange from "./components/ClimateChange";
+import InputClimate from "./components/inputClimate"
 
 import axios from "axios";
 
