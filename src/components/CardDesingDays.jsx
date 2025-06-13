@@ -105,7 +105,7 @@ const getFormattedDate = (offset = 0) => {
   return (
     <div className=' lg:mt-15  w-[300px] lg:w-[80%] h-[600px] lg:h-[200px] ml-10 grid grid-cols-2 lg:grid-cols-none lg:flex lg:flex-row lg:justify-center gap-2'>
        {/* primera card */}
-      <section className='bg-[#1e213a] w-[140px] h-[160px] flex  flex-col items-center'>
+      <section className='bg-[#1e213a] w-[150px] h-[160px] flex  flex-col items-center'>
         {/* Titulo */}
           <section className="mt-3">
             <h1 className='text-[#e7e7eb] font-semibold text-[17px]'>Today</h1>
@@ -127,7 +127,7 @@ const getFormattedDate = (offset = 0) => {
        {/*---------------------------------------------------------------------------------------------------------------------------------- */}
 
       {/* Segunda card */}
-      <section className='bg-[#1e213a] w-[140px] h-[160px] flex  flex-col items-center'>
+      <section className='bg-[#1e213a] w-[150px] h-[160px] flex  flex-col items-center'>
         {/* Titulo */}
           <section className="mt-3">
             <h1 className='text-[#e7e7eb] font-semibold text-[17px]'>{getFormattedDate(1)}</h1>
@@ -149,7 +149,7 @@ const getFormattedDate = (offset = 0) => {
       </section>
 {/* ------------------------------------------------------------------------------------------------------------------------------*/}
  {/* Tercera card */}
-      <section className='bg-[#1e213a] w-[140px] h-[160px] flex  flex-col items-center'>
+      <section className='bg-[#1e213a] w-[150px] h-[160px] flex  flex-col items-center'>
         {/* Titulo */}
           <section className="mt-3">
             <h1 className='text-[#e7e7eb] font-semibold text-[17px]'>{getFormattedDate(2)}</h1>
@@ -173,7 +173,7 @@ const getFormattedDate = (offset = 0) => {
 {/*-------------------------------------------------------------------------------------------------------------------------------*/}
 
 {/* Cuarta card */}
-      <section className='bg-[#1e213a] w-[140px] h-[160px] flex  flex-col items-center'>
+      <section className='bg-[#1e213a] w-[150px] h-[160px] flex  flex-col items-center'>
         {/* Titulo */}
           <section className="mt-3">
             <h1 className='text-[#e7e7eb] font-semibold text-[17px]'>{getFormattedDate(3)}</h1>
@@ -198,7 +198,7 @@ const getFormattedDate = (offset = 0) => {
 
 
   {/* Cuarta card */}
-      <section className='bg-[#1e213a] w-[140px] h-[160px] flex  flex-col items-center'>
+      <section className='bg-[#1e213a] w-[150px] h-[160px] flex  flex-col items-center'>
         {/* Titulo */}
           <section className="mt-3">
             <h1 className='text-[#e7e7eb] font-semibold text-[17px]'>{getFormattedDate(4)}</h1>
