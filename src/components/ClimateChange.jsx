@@ -85,7 +85,7 @@ export default function ClimateChange({toggleModal, lat, lon , icono}) {
 
 
 
-   <section className=" border-white w-[375px] h-[50px] lg:ml-25">
+   <section className=" border-white w-[375px] h-[50px] lg:ml-25 xl:ml-42">
     <h1 className='text-[#e7e7eb] text-[26px] font-semibold ml-6'>Today`s Hightlights</h1>
    </section>
    

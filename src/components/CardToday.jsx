@@ -44,7 +44,7 @@ useEffect(() => {
 
 
   return (
-    <div className='grid grid-cols-1 gap-y-10 lg:gap-y-10 lg:grid-cols-2 gap-x-95'>
+    <div className='grid grid-cols-1 gap-y-10 lg:gap-y-10 lg:grid-cols-2 gap-x-95 xl:ml-20'>
      {/* Primera Card  */}
      <section className="bg-[#1e213a] w-[275px] ml-10 lg:w-[350px] lg:ml-0 h-[170px] flex flex-col items-center">
          
@@ -71,7 +71,7 @@ useEffect(() => {
 
 
 
-     <section className="bg-[#1e213a] w-[275px] ml-10 lg:w-[350px] lg:ml-0 h-[170px]  flex items-center flex-col border-white">
+     <section className="bg-[#1e213a] w-[275px] ml-10 lg:w-[350px] lg:ml-0 h-[170px]  flex items-center flex-col border-white ">
               {/* WindStatus    */}
          <section className="text-[#e7e7eb] mt-2 text-[18px]">
             <h1>Humidity</h1>
@@ -124,7 +124,7 @@ useEffect(() => {
 
 
 
-        <section className=' border-white w-[375px] h-[30px] ml-10 lg:mt-0  lg:ml-60 text-[#a09fa3] text-[13px]'><h1>Created by
+        <section className=' border-white w-[375px] h-[30px] ml-10 lg:mt-0 xl:ml-60 lg:ml-60 text-[#a09fa3] text-[13px]'><h1>Created by
 <span className='font-bold'>NathanLoop2004</span>
 - devChallenges.io</h1></section>
 
